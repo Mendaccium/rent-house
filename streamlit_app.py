@@ -45,15 +45,15 @@ st.dataframe(filtered_data)
 st.subheader('Distribuição de Aluguel por Cidade')
 
 chart1 = alt.Chart(filtered_data).mark_bar().encode(
-    x=alt.X('city:N', title='Cidade'),  # Título do eixo X em português
-    y=alt.Y('mean(rent amount (R$)):Q', title='Preço Médio de Aluguel (R$)'),  # Título do eixo Y em português
-    color=alt.Color('city:N', title='Cidade'),  # Título da legenda de cor em português
+    x=alt.X('city:N', title='Cidade'),  # Título do eixo X 
+    y=alt.Y('mean(rent amount (R$)):Q', title='Preço Médio de Aluguel (R$)'),  # Título do eixo Y 
+    color=alt.Color('city:N', title='Cidade'),  # Título da legenda de cor 
     tooltip=[
-        alt.Tooltip('city:N', title='Cidade'),  # Tooltip em português
+        alt.Tooltip('city:N', title='Cidade'),  # Tooltip 
         alt.Tooltip('mean(rent amount (R$)):Q', title='Preço Médio de Aluguel (R$)', format=',.2f')  # Tooltip formatado para 2 casas decimais
     ]
 ).properties(
-    title='Preço Médio de Aluguel por Cidade'  # Título do gráfico em português
+    title='Preço Médio de Aluguel por Cidade'  # Título do gráfico 
 )
 
 st.altair_chart(chart1, use_container_width=True)
@@ -62,15 +62,15 @@ st.altair_chart(chart1, use_container_width=True)
 st.subheader('Quantidade de Imóveis por Número de Quartos')
 
 chart2 = alt.Chart(filtered_data).mark_bar().encode(
-    x=alt.X('rooms:O', title='Número de Quartos'),  # Título do eixo X em português
-    y=alt.Y('count():Q', title='Quantidade de Imóveis'),  # Título do eixo Y em português
-    color=alt.Color('rooms:O', title='Número de Quartos'),  # Título da legenda de cor em português
+    x=alt.X('rooms:O', title='Número de Quartos'),  # Título do eixo X 
+    y=alt.Y('count():Q', title='Quantidade de Imóveis'),  # Título do eixo Y 
+    color=alt.Color('rooms:O', title='Número de Quartos'),  # Título da legenda de cor 
     tooltip=[
-        alt.Tooltip('rooms:O', title='Número de Quartos'),  # Tooltip em português
-        alt.Tooltip('count():Q', title='Quantidade de Imóveis')  # Tooltip em português
+        alt.Tooltip('rooms:O', title='Número de Quartos'),  # Tooltip 
+        alt.Tooltip('count():Q', title='Quantidade de Imóveis')  # Tooltip 
     ]
 ).properties(
-    title='Quantidade de Imóveis por Número de Quartos'  # Título do gráfico em português
+    title='Quantidade de Imóveis por Número de Quartos'  # Título do gráfico 
 )
 
 st.altair_chart(chart2, use_container_width=True)
@@ -78,15 +78,15 @@ st.altair_chart(chart2, use_container_width=True)
 # Gráfico 3: Total de despesas mensais por cidade
 st.subheader('Total de Despesas Mensais por Cidade')
 chart3 = alt.Chart(filtered_data).mark_boxplot().encode(
-    x=alt.X('city:N', title='Cidade'),  # Título do eixo X em português
-    y=alt.Y('total (R$):Q', title='Total (R$)'),  # Título do eixo Y em português
-    color=alt.Color('city:N', title='Cidade'),  # Título da legenda de cor em português
+    x=alt.X('city:N', title='Cidade'),  # Título do eixo X 
+    y=alt.Y('total (R$):Q', title='Total (R$)'),  # Título do eixo Y 
+    color=alt.Color('city:N', title='Cidade'),  # Título da legenda de cor 
     tooltip=[
-        alt.Tooltip('city:N', title='Cidade'),  # Tooltip em português
+        alt.Tooltip('city:N', title='Cidade'),  # Tooltip 
         alt.Tooltip('total (R$):Q', title='Total (R$)', format=',.2f')  # Tooltip formatado para 2 casas decimais
     ]
 ).properties(
-    title='Despesas Totais Mensais por Cidade'  # Título do gráfico em português
+    title='Despesas Totais Mensais por Cidade'  # Título do gráfico 
 )
 
 st.altair_chart(chart3, use_container_width=True)
@@ -96,18 +96,18 @@ st.subheader('Relação entre Área e Preço de Aluguel')
 
 # Gráfico de Dispersão
 scatter_plot = alt.Chart(filtered_data).mark_circle(opacity=0.7).encode(
-    x=alt.X('area:Q', title='Área (m²)'),  # Título do eixo X em português
-    y=alt.Y('rent amount (R$):Q', title='Preço de Aluguel (R$)'),  # Título do eixo Y em português
-    color=alt.Color('city:N', title='Cidade'),  # Título da legenda de cor em português
+    x=alt.X('area:Q', title='Área (m²)'),  # Título do eixo X 
+    y=alt.Y('rent amount (R$):Q', title='Preço de Aluguel (R$)'),  # Título do eixo Y 
+    color=alt.Color('city:N', title='Cidade'),  # Título da legenda de cor 
     size=alt.Size('rooms:Q', title='Número de Quartos', scale=alt.Scale(range=[50, 200])),
     tooltip=[
-        alt.Tooltip('area:Q', title='Área (m²)'),  # Tooltip em português
+        alt.Tooltip('area:Q', title='Área (m²)'),  # Tooltip 
         alt.Tooltip('rent amount (R$):Q', title='Preço de Aluguel (R$)', format=',.2f'),  # Tooltip formatado para 2 casas decimais
-        alt.Tooltip('rooms:Q', title='Número de Quartos'),  # Tooltip em português
-        alt.Tooltip('city:N', title='Cidade')  # Tooltip em português
+        alt.Tooltip('rooms:Q', title='Número de Quartos'),  # Tooltip 
+        alt.Tooltip('city:N', title='Cidade')  # Tooltip 
     ]
 ).properties(
-    title='Relação entre Área e Preço de Aluguel'  # Título do gráfico em português
+    title='Relação entre Área e Preço de Aluguel'  # Título do gráfico 
 ).interactive()
 
 st.altair_chart(scatter_plot, use_container_width=True)
@@ -173,15 +173,15 @@ if not filtered_data.empty:
 
     # Criar um gráfico de barras
     avg_tax_chart = alt.Chart(avg_tax_comparison).mark_bar().encode(
-        x=alt.X('city:N', title='Cidade'),  # Título do eixo X em português
+        x=alt.X('city:N', title='Cidade'),  # Título do eixo X 
         y=alt.Y('property tax (R$):Q', title='Imposto Médio (R$)', axis=alt.Axis(format=',.2f')),  # Formatação para 2 casas decimais
         color=alt.Color('city:N', title='Cidade'),
         tooltip=[
-            alt.Tooltip('city:N', title='Cidade'),  # Tooltip em português
+            alt.Tooltip('city:N', title='Cidade'),  # Tooltip 
             alt.Tooltip('property tax (R$):Q', title='Imposto Médio (R$)', format=',.2f')  # Tooltip formatado para 2 casas decimais
         ]
     ).properties(
-        title='Comparação do Imposto Médio por Cidade',  # Título do gráfico em português
+        title='Comparação do Imposto Médio por Cidade',  # Título do gráfico 
         width=600,
         height=400
     ).configure_title(
